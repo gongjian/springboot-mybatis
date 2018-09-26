@@ -9,17 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Generator {
-  public static void main(String[] args) throws Exception {
-    List<String> warnings = new ArrayList<String>();
-    boolean overwrite = true;
-    File configFile = new File(
-        "D:\\workspace\\git\\springboot-mybatis\\src\\main\\resources\\mybatis-generator\\generatorConfig.xml");
-    ConfigurationParser cp = new ConfigurationParser(warnings);
-    Configuration config = cp.parseConfiguration(configFile);
-    DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-    MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-    myBatisGenerator.generate(null);
-    
-    System.out.println("Generated successfully.");
-  }
+	public static void main(String[] args) throws Exception {
+		List<String> warnings = new ArrayList<String>();
+		boolean overwrite = true;
+		File configFile = new File(Generator.class.getResource("/mybatis-generator/generatorConfig.xml").getFile());
+		ConfigurationParser cp = new ConfigurationParser(warnings);
+		Configuration config = cp.parseConfiguration(configFile);
+		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+		MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+		myBatisGenerator.generate(null);
+
+		System.out.println("Generated successfully.");
+	}
 }

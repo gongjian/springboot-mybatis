@@ -34,6 +34,8 @@
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
 
 		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		
+		<plugin type="org.james.utils.OverIsMergeablePlugin" />
 
 		<!-- 注释 -->
 		<commentGenerator>
